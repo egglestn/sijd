@@ -1,3 +1,3 @@
 <h3><%= "New entry for #{@condition}" %></h3>
 
-<%= render 'records/form', record: Record.new %>
+<%= render 'records/form', record: Record.new, condition_id: @condition.id %>

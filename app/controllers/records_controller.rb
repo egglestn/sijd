@@ -3,7 +3,7 @@
 class RecordsController < ApplicationController
   def create
     @record = Record.create(record_params)
-    redirect_to record_path(@record)
+    redirect_to new_thing_path(record_id: @record.id)
   end
 
   def new
@@ -14,7 +14,7 @@ class RecordsController < ApplicationController
     @record = Record.find(params[:id])
   end
 
-  def categories_params
-    params.require(:record).permit()
+  def record_params
+    params.require(:record).permit(:side, :spreads, :condition_id)
   end
 end

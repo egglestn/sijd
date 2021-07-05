@@ -1,3 +1,7 @@
 <%= simple_form_for record do |f| %>
-  <%= f.input :location %>
+  <%= f.hidden_field :condition_id, value: condition_id %>
+  <%= f.input :side, collection: human_keys(Record.sides.keys) %>
+  <%= f.input :spreads, collection: human_keys(Record.spreads.keys) %>
+
+  <%= f.submit "Save", class: "btn" %>
 <% end %>

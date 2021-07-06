@@ -5,6 +5,8 @@ class Record < ApplicationRecord
   has_many :records_things, dependent: :destroy
   has_many :things, through: :records_things
 
+  accepts_nested_attributes_for :records_things
+
   enum side: %i[
     both
     left

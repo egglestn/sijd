@@ -2,20 +2,21 @@
 
 <p>Tell us about things that make your condition worse or better. What helps? What doesn't help?</p>
 
-<table>
-  <thead>
-    <th>Name</th>
-    <% human_keys(RecordsThing.scores.keys).each do |score_hash| %>
-      <th><%= score_hash.first %></th>
-    <% end %>
-  </thead>
+<%= simple_form_for(@record, html: { method: :put }) do |f| %>
+  <table>
+    <thead>
+      <th>Name</th>
+      <% human_keys(RecordsThing.scores.keys).each do |score_hash| %>
+        <th><%= score_hash.first %></th>
+      <% end %>
+    </thead>
 
-  <tbody>
-    <% Thing.all.each do |thing| %>
-      <%= render 'records_things/form', thing: thing %>
-    <% end %>
-  </tbody>
-</table>
+    <tbody>
+      <% Thing.all.each do |thing| %>
+        <%= render 'records_things/form', thing: thing, f: f %>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= hidden_field_tag :record_id, value: @record.id %>
-<%= submit_tag "Save" %>
+  <%= f.submit "Save", class: :btn %>
+<% end %>

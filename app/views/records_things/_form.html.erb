@@ -1,10 +1,10 @@
-<%= simple_form_for RecordsThing.new do |f| %>
-  <%= f.hidden_field :thing_id, value: thing.id %>
+<%= f.fields_for RecordsThing.new do |ff| %>
+  <%= ff.hidden_field :thing_id, value: thing.id %>
   <tr>
     <td>
       <%= thing.to_s %>
     </td>
-    <%= f.collection_radio_buttons :score, human_keys(RecordsThing.scores.keys), :first, :last, boolean_style: :inline  do |rb| %>
+    <%= ff.collection_radio_buttons :score, human_keys(RecordsThing.scores.keys), :first, :last, boolean_style: :inline  do |rb| %>
       <td><%= rb.radio_button %></td>
     <% end %>
   </tr>

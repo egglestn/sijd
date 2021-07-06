@@ -15,10 +15,19 @@ class RecordsController < ApplicationController
   end
 
   def update
+    puts "=========="
+    puts params
+    puts "-----------"
+    puts update_params
+    puts "========="
     @record = Record.find(params[:id])
   end
 
   def record_params
     params.require(:record).permit(:side, :spreads, :condition_id)
+  end
+
+  def update_params
+    params.require(:record).permit(records_thing: [:score, :thing_id])
   end
 end

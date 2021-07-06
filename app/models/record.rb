@@ -2,6 +2,8 @@
 
 class Record < ApplicationRecord
   has_many :medicines_records, dependent: :destroy
+  has_many :records_things, dependent: :destroy
+  has_many :things, through: :records_things
 
   enum side: %i[
     both

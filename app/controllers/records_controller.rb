@@ -3,7 +3,7 @@
 class RecordsController < ApplicationController
   def create
     @record = Record.create(record_params)
-    redirect_to new_thing_path(record_id: @record.id)
+    redirect_to new_records_thing_path(record_id: @record.id)
   end
 
   def new
@@ -11,6 +11,10 @@ class RecordsController < ApplicationController
   end
 
   def show
+    @record = Record.find(params[:id])
+  end
+
+  def update
     @record = Record.find(params[:id])
   end
 

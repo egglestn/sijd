@@ -15,12 +15,20 @@ class RecordsController < ApplicationController
   end
 
   def update
-    puts "=========="
-    puts params
-    puts "-----------"
-    puts update_params
-    puts "========="
     @record = Record.find(params[:id])
+    records_things
+    redirect_to root_path
+  end
+
+  private
+
+  def records_things
+    update_params[:records_thing].each do |update_param|
+      values = update_param.last
+      next if values[:score].blank?
+
+      RecordsThing.create(record_id: @record.id, score: values[:score].to_i, thing_id: values[:thing_id])
+    end
   end
 
   def record_params

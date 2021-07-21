@@ -8,4 +8,3 @@ module CollectionHelper
     end
   end
 end
-

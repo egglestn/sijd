@@ -44,6 +44,8 @@ class RecordsController < ApplicationController
   end
 
   def update_params
-    params.require(:record).permit(records_activity: [:score, :activity_id], records_medicine: [:score, :side_effects, :medicine_id])
+    params.require(:record).permit(records_activity: %i[score activity_id],
+                                   records_medicine: %i[score side_effects
+                                                        medicine_id])
   end
 end

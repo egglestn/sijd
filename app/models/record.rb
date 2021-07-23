@@ -3,7 +3,9 @@
 class Record < ApplicationRecord
   has_many :medicines_records, dependent: :destroy
   has_many :records_activities, dependent: :destroy
-  has_many :activities, through: :records_activities
+  has_many :records_vitamins, dependent: :destroy
+  has_many :records_medicines, dependent: :destroy
+  has_many :records_treatments, dependent: :destroy
 
   accepts_nested_attributes_for :records_activities
 

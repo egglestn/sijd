@@ -1,0 +1,7 @@
+<table>
+  <tbody>
+    <% record.records_medicines.each do |record_medicine| %>
+      <%= render "records_medicines/record_medicine", record_medicine: record_medicine %>
+    <% end %>
+  </tbody>
+</table>

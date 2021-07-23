@@ -1,0 +1,7 @@
+<table>
+  <tbody>
+    <% record.records_activities.each do |record_activity| %>
+      <%= render "records_activities/record_activity", record_activity: record_activity %>
+    <% end %>
+  </tbody>
+</table>

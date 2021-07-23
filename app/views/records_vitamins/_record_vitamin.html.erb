@@ -1,0 +1,5 @@
+<tr>
+  <td class="first"><%= record_vitamin.vitamin.name %></td>
+  <td><%= record_vitamin.score.humanize %></td>
+  <td><%= "Side effects" if record_vitamin.side_effects&.positive? %></td>
+</tr>

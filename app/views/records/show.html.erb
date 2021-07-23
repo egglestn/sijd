@@ -1,0 +1,30 @@
+<h2>Your choices</h3>
+
+<div class="summary">
+  <div>
+    <label>Which side is affected</label>
+    <%= @record.side.humanize %>
+  </div>
+  <div>
+    <label>Where does it spread to?</label>
+    <%= @record.spreads.humanize %>
+  </div>
+
+  <div class="cols">
+    <div class="col">
+      <h3>Activities</h3>
+      <%= render "records_activities/record_activities", record: @record %>
+
+      <h3>Vitamins</h3>
+      <%= render "records_vitamins/record_vitamins", record: @record %>
+    </div>
+    <div class="col">
+      <h3>Medicines</h3>
+      <%= render "records_medicines/record_medicines", record: @record %>
+
+      <h3>Treatments</h3>
+      <%= render "records_treatments/record_treatments", record: @record %>
+    </div>
+  </div>
+</div>
+

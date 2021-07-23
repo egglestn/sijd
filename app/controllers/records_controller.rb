@@ -23,6 +23,7 @@ class RecordsController < ApplicationController
 
   private
 
+  # rubocop:disable Metrics/AbcSize
   def create_join_entries_and_return
     return RecordsControllerService.records_activities(activity_params) if update_params[:records_activity]
 
@@ -30,8 +31,11 @@ class RecordsController < ApplicationController
 
     return RecordsControllerService.records_vitamins(vitamin_params) if update_params[:records_vitamin]
 
+    return RecordsControllerService.records_treatments(treatment_params) if update_params[:records_treatment]
+
     root_path
   end
+  # rubocop:enable Metrics/AbcSize
 
   def activity_params
     update_params[:records_activity].merge(record_id: @record.id)
@@ -45,6 +49,10 @@ class RecordsController < ApplicationController
     update_params[:records_vitamin].merge(record_id: @record.id)
   end
 
+  def treatment_params
+    update_params[:records_treatment].merge(record_id: @record.id)
+  end
+
   def record_params
     params.require(:record).permit(:side, :spreads, :condition_id)
   end
@@ -54,6 +62,8 @@ class RecordsController < ApplicationController
                                    records_medicine: %i[score side_effects
                                                         medicine_id],
                                    records_vitamin: %i[score side_effects
-                                                       vitamin_id])
+                                                       vitamin_id],
+                                   records_treatment: %i[score side_effects
+                                                         treatment_id])
   end
 end

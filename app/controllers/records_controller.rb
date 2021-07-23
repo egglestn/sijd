@@ -17,7 +17,7 @@ class RecordsController < ApplicationController
   def update
     @record = Record.find(params[:id])
     records_activities
-    redirect_to root_path
+    redirect_to new_records_medicine_path(record_id: @record.id)
   end
 
   private

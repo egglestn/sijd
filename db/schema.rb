@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_23_094914) do
+ActiveRecord::Schema.define(version: 2021_07_23_101108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,18 +32,6 @@ ActiveRecord::Schema.define(version: 2021_07_23_094914) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "medicines_records", id: false, force: :cascade do |t|
-    t.bigint "medicine_id"
-    t.bigint "record_id"
-    t.integer "score"
-    t.integer "side_effects"
-    t.integer "diminishing"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["medicine_id"], name: "index_medicines_records_on_medicine_id"
-    t.index ["record_id"], name: "index_medicines_records_on_record_id"
-  end
-
   create_table "records", force: :cascade do |t|
     t.integer "location"
     t.integer "side"
@@ -62,6 +50,18 @@ ActiveRecord::Schema.define(version: 2021_07_23_094914) do
     t.datetime "updated_at", null: false
     t.index ["activity_id"], name: "index_records_activities_on_activity_id"
     t.index ["record_id"], name: "index_records_activities_on_record_id"
+  end
+
+  create_table "records_medicines", id: false, force: :cascade do |t|
+    t.bigint "medicine_id"
+    t.bigint "record_id"
+    t.integer "score"
+    t.integer "side_effects"
+    t.integer "diminishing"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medicine_id"], name: "index_records_medicines_on_medicine_id"
+    t.index ["record_id"], name: "index_records_medicines_on_record_id"
   end
 
   create_table "records_treatments", id: false, force: :cascade do |t|
@@ -101,10 +101,10 @@ ActiveRecord::Schema.define(version: 2021_07_23_094914) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "medicines_records", "medicines"
-  add_foreign_key "medicines_records", "records"
   add_foreign_key "records_activities", "activities"
   add_foreign_key "records_activities", "records"
+  add_foreign_key "records_medicines", "medicines"
+  add_foreign_key "records_medicines", "records"
   add_foreign_key "records_treatments", "records"
   add_foreign_key "records_treatments", "treatments"
   add_foreign_key "records_vitamins", "records"

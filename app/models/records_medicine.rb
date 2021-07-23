@@ -7,10 +7,10 @@ class RecordsMedicine < ApplicationRecord
   validates :record_id, uniqueness: { scope: :medicine_id }
 
   enum score: %i[
-    tried_no_help
+    tried_but_stopped
     occasionally
     frequently
-    too_expensive
+    would_like_to
     not_tried
   ]
 end

@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_05_124010) do
+ActiveRecord::Schema.define(version: 2021_07_23_093556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "conditions", force: :cascade do |t|
     t.string "name"
@@ -67,14 +73,14 @@ ActiveRecord::Schema.define(version: 2021_07_05_124010) do
     t.index ["condition_id"], name: "index_records_on_condition_id"
   end
 
-  create_table "records_things", id: false, force: :cascade do |t|
-    t.bigint "thing_id"
+  create_table "records_activities", id: false, force: :cascade do |t|
+    t.bigint "activity_id"
     t.bigint "record_id"
     t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["record_id"], name: "index_records_things_on_record_id"
-    t.index ["thing_id"], name: "index_records_things_on_thing_id"
+    t.index ["activity_id"], name: "index_records_activities_on_activity_id"
+    t.index ["record_id"], name: "index_records_activities_on_record_id"
   end
 
   create_table "records_vitamins", id: false, force: :cascade do |t|
@@ -89,12 +95,6 @@ ActiveRecord::Schema.define(version: 2021_07_05_124010) do
     t.index ["vitamin_id"], name: "index_records_vitamins_on_vitamin_id"
   end
 
-  create_table "things", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "vitamins", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -105,8 +105,8 @@ ActiveRecord::Schema.define(version: 2021_07_05_124010) do
   add_foreign_key "medicines_records", "records"
   add_foreign_key "others_records", "others"
   add_foreign_key "others_records", "records"
-  add_foreign_key "records_things", "records"
-  add_foreign_key "records_things", "things"
+  add_foreign_key "records_activities", "activities"
+  add_foreign_key "records_activities", "records"
   add_foreign_key "records_vitamins", "records"
   add_foreign_key "records_vitamins", "vitamins"
 end

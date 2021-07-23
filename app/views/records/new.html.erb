@@ -1,3 +1,5 @@
 <h3><%= "New entry for #{@condition}" %></h3>
 
-<%= render 'records/form', record: Record.new, condition_id: @condition.id %>
+<div class="new-record">
+  <%= render 'records/form', record: Record.new, condition_id: @condition.id %>
+</div>

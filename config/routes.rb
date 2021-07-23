@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :records_activities, only: [:new, :create, :show]
   resources :records_medicines, only: [:new, :create, :show]
   resources :records_vitamins, only: [:new, :create, :show]
+  resources :records_treatments, only: [:new]
 end

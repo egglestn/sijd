@@ -5,6 +5,20 @@ module RecordsControllerService
 
   include Rails.application.routes.url_helpers
 
+  def records_treatments(params)
+    params.each do |param|
+      next if param.first == "record_id"
+
+      values = param.last
+      next if values[:score].blank?
+
+      RecordsTreatment.create(record_id: params[:record_id], score: values[:score].to_i,
+                              treatment_id: values[:treatment_id], side_effects: values[:side_effects])
+    end
+
+    "/records_treatments/new?record_id=#{params[:record_id]}"
+  end
+
   def records_vitamins(params)
     params.each do |param|
       next if param.first == "record_id"
@@ -16,7 +30,7 @@ module RecordsControllerService
                             vitamin_id: values[:vitamin_id], side_effects: values[:side_effects])
     end
 
-    "/records_vitamins/new?record_id=#{params[:record_id]}"
+    "/records_treatments/new?record_id=#{params[:record_id]}"
   end
 
   def records_medicines(params)
@@ -46,5 +60,4 @@ module RecordsControllerService
 
     "/records_medicines/new?record_id=#{params[:record_id]}"
   end
-
 end

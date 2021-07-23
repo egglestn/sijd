@@ -1,0 +1,25 @@
+<h3>How treatments affect your condition</h3>
+
+<p>Tell us about treatments that you use for your condition. How often do you take them?</p>
+
+<%= simple_form_for(@record, html: { method: :put }) do |f| %>
+  <table>
+    <thead>
+      <th>&nbsp;</th>
+      <% human_keys(RecordsTreatment.scores.keys).each do |score_hash| %>
+        <th><%= score_hash.first %></th>
+      <% end %>
+      <th>Side effects</th>
+    </thead>
+
+    <tbody>
+      <% Treatment.all.each do |treatment| %>
+        <%= render 'records_treatments/form', treatment: treatment, f: f %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="actions">
+    <%= f.submit "Save", class: :btn %>
+  </div>
+<% end %>

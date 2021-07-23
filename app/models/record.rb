@@ -2,10 +2,10 @@
 
 class Record < ApplicationRecord
   has_many :medicines_records, dependent: :destroy
-  has_many :records_things, dependent: :destroy
-  has_many :things, through: :records_things
+  has_many :records_activities, dependent: :destroy
+  has_many :activities, through: :records_activities
 
-  accepts_nested_attributes_for :records_things
+  accepts_nested_attributes_for :records_activities
 
   enum side: %i[
     both

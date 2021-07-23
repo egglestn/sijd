@@ -3,7 +3,7 @@
 class RecordsController < ApplicationController
   def create
     @record = Record.create(record_params)
-    redirect_to new_records_thing_path(record_id: @record.id)
+    redirect_to new_records_activity_path(record_id: @record.id)
   end
 
   def new
@@ -16,18 +16,18 @@ class RecordsController < ApplicationController
 
   def update
     @record = Record.find(params[:id])
-    records_things
+    records_activities
     redirect_to root_path
   end
 
   private
 
-  def records_things
-    update_params[:records_thing].each do |update_param|
+  def records_activities
+    update_params[:records_activity].each do |update_param|
       values = update_param.last
       next if values[:score].blank?
 
-      RecordsThing.create(record_id: @record.id, score: values[:score].to_i, thing_id: values[:thing_id])
+      RecordsActivity.create(record_id: @record.id, score: values[:score].to_i, activity_id: values[:activity_id])
     end
   end
 
@@ -36,6 +36,6 @@ class RecordsController < ApplicationController
   end
 
   def update_params
-    params.require(:record).permit(records_thing: [:score, :thing_id])
+    params.require(:record).permit(records_activity: [:score, :activity_id])
   end
 end

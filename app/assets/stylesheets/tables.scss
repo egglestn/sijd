@@ -1,0 +1,19 @@
+tbody tr {
+  &:nth-child(4n-2) {
+    background: $lightgrey;
+  }
+}
+
+th, td {
+  font-size: 14px;
+  width: 90px;
+  text-align: center;
+  padding: 5px 0;
+}
+
+td.first {
+  font-size: 15px;
+  text-align: left;
+  width: 135px;
+  padding-left: 4px;
+}

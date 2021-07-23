@@ -1,11 +1,11 @@
 <h3>How time and activities affect your condition</h3>
 
-<p>Tell us about activities that make your condition worse or better. What helps? What doesn't help?</p>
+<p>Tell us about activities and times of day that affect your condition. What makes it better? What makes it worse?</p>
 
 <%= simple_form_for(@record, html: { method: :put }) do |f| %>
   <table>
     <thead>
-      <th>Name</th>
+      <th>&nbsp;</th>
       <% human_keys(RecordsActivity.scores.keys).each do |score_hash| %>
         <th><%= score_hash.first %></th>
       <% end %>
@@ -18,5 +18,7 @@
     </tbody>
   </table>
 
-  <%= f.submit "Save", class: :btn %>
+  <div class="actions">
+    <%= f.submit "Save", class: :btn %>
+  </div>
 <% end %>

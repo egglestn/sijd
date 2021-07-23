@@ -3,6 +3,7 @@ select {
   border-radius: 0;
   border-width: 1px;
   margin-top: 4px;
+  background-color: $lightgrey;
 }
 
 select {
@@ -16,4 +17,8 @@ label {
 
 .actions {
   margin: 20px 0;
+}
+
+.btn {
+  font-size: 16px;
 }

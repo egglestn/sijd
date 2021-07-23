@@ -6,14 +6,14 @@
   <table>
     <thead>
       <th>&nbsp;</th>
-      <% human_keys(RecordsMedicine.scores.keys).each do |score_hash| %>
+      <% human_keys(RecordsVitamin.scores.keys).each do |score_hash| %>
         <th><%= score_hash.first %></th>
       <% end %>
       <th>Side effects</th>
     </thead>
 
     <tbody>
-      <% Medicine.all.each do |vitamin| %>
+      <% Vitamin.all.each do |vitamin| %>
         <%= render 'records_vitamins/form', vitamin: vitamin, f: f %>
       <% end %>
     </tbody>

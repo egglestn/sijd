@@ -28,6 +28,8 @@ class RecordsController < ApplicationController
 
     return RecordsControllerService.records_medicines(medicine_params) if update_params[:records_medicine]
 
+    return RecordsControllerService.records_vitamins(vitamin_params) if update_params[:records_vitamin]
+
     root_path
   end
 
@@ -39,6 +41,10 @@ class RecordsController < ApplicationController
     update_params[:records_medicine].merge(record_id: @record.id)
   end
 
+  def vitamin_params
+    update_params[:records_vitamin].merge(record_id: @record.id)
+  end
+
   def record_params
     params.require(:record).permit(:side, :spreads, :condition_id)
   end
@@ -46,6 +52,8 @@ class RecordsController < ApplicationController
   def update_params
     params.require(:record).permit(records_activity: %i[score activity_id],
                                    records_medicine: %i[score side_effects
-                                                        medicine_id])
+                                                        medicine_id],
+                                   records_vitamin: %i[score side_effects
+                                                       vitamin_id])
   end
 end

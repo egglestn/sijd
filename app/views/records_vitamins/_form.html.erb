@@ -4,7 +4,7 @@
     <td class="first">
       <%= vitamin.to_s %>
     </td>
-    <%= ff.collection_radio_buttons :score, RecordsMedicine.scores, :last, :last, boolean_style: :inline  do |rb| %>
+    <%= ff.collection_radio_buttons :score, RecordsVitamin.scores, :last, :last, boolean_style: :inline  do |rb| %>
       <td><%= rb.radio_button %></td>
     <% end %>
     <td><%= ff.check_box :side_effects %></td>

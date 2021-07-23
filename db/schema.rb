@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_23_093556) do
+ActiveRecord::Schema.define(version: 2021_07_23_094914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,25 +44,6 @@ ActiveRecord::Schema.define(version: 2021_07_23_093556) do
     t.index ["record_id"], name: "index_medicines_records_on_record_id"
   end
 
-  create_table "others", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "others_records", id: false, force: :cascade do |t|
-    t.bigint "other_id"
-    t.bigint "record_id"
-    t.integer "score"
-    t.integer "side_effects"
-    t.integer "diminishing"
-    t.integer "recovery"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["other_id"], name: "index_others_records_on_other_id"
-    t.index ["record_id"], name: "index_others_records_on_record_id"
-  end
-
   create_table "records", force: :cascade do |t|
     t.integer "location"
     t.integer "side"
@@ -83,6 +64,19 @@ ActiveRecord::Schema.define(version: 2021_07_23_093556) do
     t.index ["record_id"], name: "index_records_activities_on_record_id"
   end
 
+  create_table "records_treatments", id: false, force: :cascade do |t|
+    t.bigint "treatment_id"
+    t.bigint "record_id"
+    t.integer "score"
+    t.integer "side_effects"
+    t.integer "diminishing"
+    t.integer "recovery"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_id"], name: "index_records_treatments_on_record_id"
+    t.index ["treatment_id"], name: "index_records_treatments_on_treatment_id"
+  end
+
   create_table "records_vitamins", id: false, force: :cascade do |t|
     t.bigint "vitamin_id"
     t.bigint "record_id"
@@ -95,6 +89,12 @@ ActiveRecord::Schema.define(version: 2021_07_23_093556) do
     t.index ["vitamin_id"], name: "index_records_vitamins_on_vitamin_id"
   end
 
+  create_table "treatments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "vitamins", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -103,10 +103,10 @@ ActiveRecord::Schema.define(version: 2021_07_23_093556) do
 
   add_foreign_key "medicines_records", "medicines"
   add_foreign_key "medicines_records", "records"
-  add_foreign_key "others_records", "others"
-  add_foreign_key "others_records", "records"
   add_foreign_key "records_activities", "activities"
   add_foreign_key "records_activities", "records"
+  add_foreign_key "records_treatments", "records"
+  add_foreign_key "records_treatments", "treatments"
   add_foreign_key "records_vitamins", "records"
   add_foreign_key "records_vitamins", "vitamins"
 end

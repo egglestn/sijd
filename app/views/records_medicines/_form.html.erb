@@ -1,0 +1,12 @@
+<%= f.fields_for "records_medicine][#{medicine.id}" do |ff| %>
+  <%= ff.hidden_field :medicine_id, value: medicine.id %>
+  <tr>
+    <td>
+      <%= medicine.to_s %>
+    </td>
+    <%= ff.collection_radio_buttons :score, RecordsMedicine.scores, :last, :last, boolean_style: :inline  do |rb| %>
+      <td><%= rb.radio_button %></td>
+    <% end %>
+    <td><%= ff.check_box :side_effects %></td>
+  </tr>
+<% end %>

@@ -16,19 +16,27 @@ class RecordsController < ApplicationController
 
   def update
     @record = Record.find(params[:id])
-    records_activities
-    redirect_to root_path
+    return_path = create_join_entries_and_return
+
+    redirect_to return_path
   end
 
   private
 
-  def records_activities
-    update_params[:records_activity].each do |update_param|
-      values = update_param.last
-      next if values[:score].blank?
+  def create_join_entries_and_return
+    return RecordsControllerService.records_activities(activity_params) if update_params[:records_activity]
 
-      RecordsActivity.create(record_id: @record.id, score: values[:score].to_i, activity_id: values[:activity_id])
-    end
+    return RecordsControllerService.records_medicines(medicine_params) if update_params[:records_medicine]
+
+    root_path
+  end
+
+  def activity_params
+    update_params[:records_activity].merge(record_id: @record.id)
+  end
+
+  def medicine_params
+    update_params[:records_medicine].merge(record_id: @record.id)
   end
 
   def record_params
@@ -36,6 +44,6 @@ class RecordsController < ApplicationController
   end
 
   def update_params
-    params.require(:record).permit(records_activity: [:score, :activity_id])
+    params.require(:record).permit(records_activity: [:score, :activity_id], records_medicine: [:score, :side_effects, :medicine_id])
   end
 end

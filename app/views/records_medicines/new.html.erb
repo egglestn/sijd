@@ -1,0 +1,23 @@
+<h3>How medicines affect your condition</h3>
+
+<p>Tell us about medicines that you use for your condition. How often do you take them?</p>
+
+<%= simple_form_for(@record, html: { method: :put }) do |f| %>
+  <table>
+    <thead>
+      <th>Name</th>
+      <% human_keys(RecordsMedicine.scores.keys).each do |score_hash| %>
+        <th><%= score_hash.first %></th>
+      <% end %>
+      <th>Side effects</th>
+    </thead>
+
+    <tbody>
+      <% Medicine.all.each do |medicine| %>
+        <%= render 'records_medicines/form', medicine: medicine, f: f %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= f.submit "Save", class: :btn %>
+<% end %>

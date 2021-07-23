@@ -1,0 +1,25 @@
+<h3>How vitamins affect your condition</h3>
+
+<p>Tell us about vitamins that you use for your condition. How often do you take them?</p>
+
+<%= simple_form_for(@record, html: { method: :put }) do |f| %>
+  <table>
+    <thead>
+      <th>&nbsp;</th>
+      <% human_keys(RecordsMedicine.scores.keys).each do |score_hash| %>
+        <th><%= score_hash.first %></th>
+      <% end %>
+      <th>Side effects</th>
+    </thead>
+
+    <tbody>
+      <% Medicine.all.each do |vitamin| %>
+        <%= render 'records_vitamins/form', vitamin: vitamin, f: f %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="actions">
+    <%= f.submit "Save", class: :btn %>
+  </div>
+<% end %>

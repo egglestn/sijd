@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class RecordsTreatment < ApplicationRecord
-  has_many :records
-  has_many :treatments
+  belongs_to :record
+  belongs_to :treatment
 
   validates :record_id, uniqueness: { scope: :treatment_id }
 

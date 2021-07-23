@@ -16,7 +16,7 @@ module RecordsControllerService
                               treatment_id: values[:treatment_id], side_effects: values[:side_effects])
     end
 
-    "/records_treatments/new?record_id=#{params[:record_id]}"
+    "/records/#{params[:record_id]}"
   end
 
   def records_vitamins(params)

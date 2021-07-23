@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class RecordsActivity < ApplicationRecord
-  has_many :records
-  has_many :activities
+  belongs_to :record
+  belongs_to :activity
 
   validates :record_id, uniqueness: { scope: :activity_id }
 
@@ -13,4 +13,8 @@ class RecordsActivity < ApplicationRecord
     a_bit_better
     much_better
   ]
+
+  def to_s
+    "#{activity.name} #{score.humanize}"
+  end
 end

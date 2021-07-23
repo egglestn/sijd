@@ -3,5 +3,7 @@
   <%= f.input :side, collection: human_keys(Record.sides.keys) %>
   <%= f.input :spreads, collection: human_keys(Record.spreads.keys) %>
 
-  <%= f.submit "Save", class: "btn" %>
+  <div class="actions">
+    <%= f.submit "Save", class: "btn" %>
+  </div>
 <% end %>

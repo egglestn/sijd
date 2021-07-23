@@ -13,6 +13,7 @@ gem "pg"
 gem "puma", "~> 3.11"
 # Use SCSS for stylesheets
 gem "sassc", "~> 2.4"
+gem "sassc-rails", "~> 2.1"
 # Form helpers
 gem "simple_form"
 # Use Uglifier as compressor for JavaScript assets

@@ -1,0 +1,19 @@
+select {
+  padding: 4px;
+  border-radius: 0;
+  border-width: 1px;
+  margin-top: 4px;
+}
+
+select {
+  min-width: 180px;
+}
+
+label {
+  width: 110px;
+  display: inline-block;
+}
+
+.actions {
+  margin: 20px 0;
+}

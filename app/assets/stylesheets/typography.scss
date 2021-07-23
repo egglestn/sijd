@@ -1,0 +1,75 @@
+/* Fonts downloaded from https://best-font.com/ and https://fontsup.com and http://fontsgeek.com */
+@font-face {
+  font-family: 'Frutiger';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Frutiger'), url('frutiger/Frutiger-LT-Std-77-Black-Condensed_18829.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Myriad';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Myriad'), url('myriad/Myriad-Pro-Light-SemiExtended_31641.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Minion';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Myriad'), url('minion/Minion-Pro-Italic.ttf') format('truetype');
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Myriad", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 400;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+}
+
+input {
+  font-size: 21px;
+}
+
+p {
+  margin: 20px 0;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+input {
+  font-family: system-ui, 'Myriad', sans-serif;
+}
+
+.italic-min {
+  font-family: 'Minion', sans-serif;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-size: 18px;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-size: 18px;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  font-size: 18px;
+}
+:-moz-placeholder { /* Firefox 18- */
+  font-size: 18px;
+}

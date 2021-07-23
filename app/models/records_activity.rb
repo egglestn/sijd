@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-class RecordsThing < ApplicationRecord
+class RecordsActivity < ApplicationRecord
   has_many :records
-  has_many :things
+  has_many :activities
 
-  validates :record_id, uniqueness: { scope: :thing_id }
+  validates :record_id, uniqueness: { scope: :activity_id }
 
   enum score: %i[
     much_worse

@@ -1,0 +1,11 @@
+<%= f.fields_for "records_activity][#{activity.id}" do |ff| %>
+  <%= ff.hidden_field :activity_id, value: activity.id %>
+  <tr>
+    <td>
+      <%= activity.to_s %>
+    </td>
+    <%= ff.collection_radio_buttons :score, RecordsActivity.scores, :last, :last, boolean_style: :inline  do |rb| %>
+      <td><%= rb.radio_button %></td>
+    <% end %>
+  </tr>
+<% end %>

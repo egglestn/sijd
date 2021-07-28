@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  # rubocop:disable Metrics/MethodLength
   def score_to_num(score)
     case score
     when 0
@@ -17,6 +18,7 @@ module ApplicationHelper
       ""
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   def med_score_to_num(score)
     case score

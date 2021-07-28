@@ -3,11 +3,11 @@
 <div class="summary">
   <div>
     <label>Which side is affected</label>
-    <%= @record.side.humanize %>
+    <%= @record.side&.humanize %>
   </div>
   <div>
     <label>Where does it spread to?</label>
-    <%= @record.spreads.humanize %>
+    <%= @record.spreads&.humanize %>
   </div>
 </div>
 
@@ -29,6 +29,6 @@
 </div>
 
 <div class="actions">
-  <%= link_to "See all results", records_path %>
+  <%= link_to "Overview of newest experiences", records_path %>
 </div>
 

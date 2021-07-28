@@ -28,6 +28,10 @@ td.first {
 }
 
 .full-data {
+  .subheader {
+    text-align: left;
+  }
+
   th:not(.first) {
     writing-mode: tb-rl;
   }

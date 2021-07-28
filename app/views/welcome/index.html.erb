@@ -1,5 +1,41 @@
 <h2>Welcome</h2>
 
+<p>
+  Welcome to the condition experience tracker for SI Joint Dysfunction.
+</p>
+<p>
+  We hope you will be happy to share your experiences with us. Thank you in advance!
+</p>
+<p>
+  Before you continue, here are is the important stuff you should know.
+</p>
+
+<h3>Anonymous</h3>
+<p>
+  Entries here are completely anonymous, we don't track anything about you. This includes:
+</p>
+<ul>
+  <li>No sign-in / log-in</li>
+  <li>We don't track or store your IP address</li>
+  <li>We don't use cookies</li>
+  <li>We don't collect personal information about you, and we therefore also don't share it with anyone else</li>
+</ul>
+
+<h3>Optional</h3>
+<p>
+  All sections and all questions in any section are optional. Please answer the ones you can, and skip any if
+  you don't know the answer or prefer not to share that information.
+</p>
+
+<h3>Non-medical</h3>
+<p>
+  This site is supported by volunteers who suffer from SI Joint Dysfunction. It is not sponsored by any medical
+  authority, and we do not have any medical qualifications. Nothing on this site constitutes medical advice.
+</p>
+<p>
+  Any data on this site is provided without validation or medical expertise, and may not be accurate.
+</p>
+
 <% Condition.all.each do |condition| %>
-  <%= link_to "Add my experiences with #{condition.to_s}", new_record_path(condition_id: condition.id) %>
+  <%= link_to "Sounds good to me, I want to add my experiences with #{condition.to_s}", new_record_path(condition_id: condition.id) %>
 <% end %>

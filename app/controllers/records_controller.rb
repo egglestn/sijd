@@ -22,7 +22,7 @@ class RecordsController < ApplicationController
   end
 
   def index
-    @records = Record.all.order(:created_at).limit(30)
+    @records = Record.all.order(created_at: :desc).limit(30)
   end
 
   private

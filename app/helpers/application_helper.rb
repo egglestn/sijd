@@ -17,21 +17,4 @@ module ApplicationHelper
       ""
     end
   end
-
-  def score_to_sym(score)
-    case score
-    when 0
-      "- -"
-    when 1
-      "-"
-    when 2
-      "o"
-    when 3
-      "+"
-    when 4
-      "++"
-    else
-      ""
-    end
-  end
 end

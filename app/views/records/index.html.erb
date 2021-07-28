@@ -15,7 +15,7 @@
           <% ra = record.records_activities.where(activity_id: activity.id)&.first %>
           <% if ra %>
             <% score = ra.read_attribute_before_type_cast(:score) %>
-            <td class='<%= score_to_num(score) %>'><%= score_to_sym(score) %></td>
+            <td class='<%= score_to_num(score) %>'></td>
           <% else %>
             <td>&nbsp;</td>
           <% end %>

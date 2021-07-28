@@ -21,6 +21,10 @@ class RecordsController < ApplicationController
     redirect_to return_path
   end
 
+  def index
+    @records = Record.all.order(created_at: :desc).limit(30)
+  end
+
   private
 
   # rubocop:disable Metrics/AbcSize

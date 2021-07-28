@@ -5,6 +5,7 @@ class RecordsActivity < ApplicationRecord
   belongs_to :activity
 
   validates :record_id, uniqueness: { scope: :activity_id }
+  validates_presence_of(:score)
 
   enum score: %i[
     much_worse

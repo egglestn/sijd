@@ -1,0 +1,43 @@
+<h3>Treatment Overview</h3>
+<table class="full-data">
+  <thead>
+    <% @treatments.each do |treatment| %>
+      <th><%= treatment %></th>
+    <% end %>
+  </thead>
+  <tbody>
+    <% @records.each do |record| %>
+      <% next unless record.records_treatments.any? %>
+      <tr>
+        <% @treatments.each do |treatment| %>
+          <% ra = record.records_treatments.where(treatment_id: treatment.id)&.first %>
+          <% if ra %>
+            <% score = ra.read_attribute_before_type_cast(:score) %>
+            <td class='<%= score_to_num(score) %>'></td>
+          <% else %>
+            <td>&nbsp;</td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+    <tr><td class="subheader" colspan=4>Positive responses</td></tr>
+    <tr>
+      <% @positive_map.each do |pos| %>
+        <td><%= pos %></td>
+      <% end %>
+    </tr>
+    <tr><td class="subheader" colspan=4>Negative responses</td></tr>
+    <tr>
+      <% @negative_map.each do |neg| %>
+        <td><%= neg %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+
+<div class="actions">
+  <%= link_to "Overview of newest experiences", records_path %>
+  <%= link_to "Activities", activities_path %>
+  <%= link_to "Medicines", medicines_path %>
+  <%= link_to "Vitamins", vitamins_path %>
+</div>

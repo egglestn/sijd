@@ -26,3 +26,58 @@ td.first {
     background: $lightgrey;
   }
 }
+
+.full-data {
+  .subheader {
+    text-align: left;
+  }
+
+  th:not(.first) {
+    writing-mode: tb-rl;
+  }
+
+  tbody tr:nth-child(odd) {
+    background: $lightgrey;
+  }
+
+  tbody tr:nth-child(even) {
+    background: white;
+  }
+
+  td {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+  }
+
+  td.zero {
+    color: red;
+
+    &::before {
+      content: "\f0e7 \f0e7";
+    }
+  }
+
+  td.one {
+    color: red;
+
+    &::before {
+      content: "\f0e7";
+    }
+  }
+
+  td.three {
+    color: green;
+
+    &::before {
+      content: "\f479";
+    }
+  }
+
+  td.four {
+    color: green;
+
+    &::before {
+      content: "\f479 \f479";
+    }
+  }
+}

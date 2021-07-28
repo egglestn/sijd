@@ -5,6 +5,7 @@ class RecordsVitamin < ApplicationRecord
   belongs_to :vitamin
 
   validates :record_id, uniqueness: { scope: :vitamin_id }
+  validates_presence_of(:score)
 
   enum score: %i[
     tried_but_stopped

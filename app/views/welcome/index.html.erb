@@ -1,5 +1,5 @@
 <h2>Welcome</h2>
 
 <% Condition.all.each do |condition| %>
-  <%= link_to "Add information about #{condition.to_s}", new_record_path(condition_id: condition.id) %>
+  <%= link_to "Add my experiences with #{condition.to_s}", new_record_path(condition_id: condition.id) %>
 <% end %>

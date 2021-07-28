@@ -1,6 +1,20 @@
 <h2>Overview of newest experiences</h2>
 
-<%= link_to "Activities", activities_path %>
-<%= link_to "Medicines", medicines_path %>
-<%= link_to "Vitamins", vitamins_path %>
-<%= link_to "Treatments", treatments_path %>
+<p>
+  Links to summaries of the experiences you and others have added.
+</p>
+<p>
+  Bookmark this page to come back later.
+</p>
+<p>
+  Remember this is information provided by volunteers and is provided without validation or medical expertise.
+</p>
+
+<%= render "welcome/consult_doctor" %>
+
+<div class="actions">
+  <%= link_to "Activities", activities_path %>
+  <%= link_to "Medicines", medicines_path %>
+  <%= link_to "Vitamins", vitamins_path %>
+  <%= link_to "Treatments", treatments_path %>
+</div>

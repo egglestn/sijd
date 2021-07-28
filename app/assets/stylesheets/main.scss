@@ -1,9 +1,16 @@
 body {
-  margin: 0;
+  margin: 5px;
 }
 
 .main {
   height: 100%;
+}
+
+.alert {
+  margin: 20px 0;
+  border: 2px solid red;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 @media (min-width: 768px) {

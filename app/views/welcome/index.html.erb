@@ -36,6 +36,8 @@
   Any data on this site is provided without validation or medical expertise, and may not be accurate.
 </p>
 
+<%= render "welcome/consult_doctor" %>
+
 <% Condition.all.each do |condition| %>
   <%= link_to "Sounds good to me, I want to add my experiences with #{condition.to_s}", new_record_path(condition_id: condition.id) %>
 <% end %>

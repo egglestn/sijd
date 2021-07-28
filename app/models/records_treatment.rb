@@ -9,9 +9,9 @@ class RecordsTreatment < ApplicationRecord
 
   enum score: %i[
     not_tried
-    once
-    several_times
+    permanent_success
+    successful_but_wears_off
     would_like_to
-    not_again
+    did_not_help
   ]
 end

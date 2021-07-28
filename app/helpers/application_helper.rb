@@ -17,4 +17,17 @@ module ApplicationHelper
       ""
     end
   end
+
+  def med_score_to_num(score)
+    case score
+    when "tried_but_stopped"
+      "one"
+    when "occasionally"
+      "three"
+    when "frequently"
+      "four"
+    else
+      ""
+    end
+  end
 end

@@ -1,16 +1,16 @@
-<h3>Medicine Overview</h3>
+<h3>Vitamin Overview</h3>
 <table class="full-data">
   <thead>
-    <% @medicines.each do |medicine| %>
-      <th><%= medicine %></th>
+    <% @vitamins.each do |vitamin| %>
+      <th><%= vitamin %></th>
     <% end %>
   </thead>
   <tbody>
     <% @records.each do |record| %>
-      <% next unless record.records_medicines.any? %>
+      <% next unless record.records_vitamins.any? %>
       <tr>
-        <% @medicines.each do |medicine| %>
-          <% ra = record.records_medicines.where(medicine_id: medicine.id)&.first %>
+        <% @vitamins.each do |vitamin| %>
+          <% ra = record.records_vitamins.where(vitamin_id: vitamin.id)&.first %>
           <% if ra %>
             <td class='<%= med_score_to_num(ra.score) %>'></td>
           <% else %>
@@ -37,6 +37,6 @@
 <div class="actions">
   <%= link_to "Data Overview", records_path %>
   <%= link_to "Activities", activities_path %>
-  <%= link_to "Vitamins", vitamins_path %>
+  <%= link_to "Medicines", medicines_path %>
   <%= link_to "Treatments", treatments_path %>
 </div>

@@ -2,26 +2,30 @@
 
 class MedicinesController < ApplicationController
   def index
-    @medicines = Medicine.all.order(:name)
-    @records = Record.all.order(created_at: :desc).limit(30)
-    medicine_map
+    @medicines = Medicine.all.includes(:records_medicines).order(:name)
+    @records = Record.all.includes(:records_medicines).order(created_at: :desc).limit(30)
+    medicines_map
   end
 
   private
 
-  def medicine_map
+  def medicines_map
     @positive_map = []
     @negative_map = []
     @medicines.each do |medicine|
-      pos = 0
-      neg = 0
-      RecordsMedicine.where(medicine_id: medicine.id).each do |ra|
-        score = ra.read_attribute_before_type_cast(:score)
-        pos += 1 if score > 2
-        neg -= 1 if score < 2
-      end
-      @positive_map << pos
-      @negative_map << neg
+      medicine_map(medicine)
     end
+  end
+
+  def medicine_map(medicine)
+    pos = 0
+    neg = 0
+    RecordsMedicine.where(medicine_id: medicine.id).each do |ra|
+      score = ra.score
+      pos += 1 if %w[occasionally frequently].include? score
+      neg -= 1 if score == "tried_but_stopped"
+    end
+    @positive_map << pos
+    @negative_map << neg
   end
 end

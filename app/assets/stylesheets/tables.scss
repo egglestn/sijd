@@ -26,3 +26,35 @@ td.first {
     background: $lightgrey;
   }
 }
+
+.full-data {
+  th:not(.first) {
+    writing-mode: tb-rl;
+  }
+
+  tbody tr:nth-child(odd) {
+    background: $lightgrey;
+  }
+
+  tbody tr:nth-child(even) {
+    background: white;
+  }
+
+  td.zero {
+    color: red;
+    font-weight: bold;
+  }
+
+  td.one {
+    color: red;
+  }
+
+  td.three {
+    color: green;
+  }
+
+  td.four {
+    color: green;
+    font-weight: bold;
+  }
+}

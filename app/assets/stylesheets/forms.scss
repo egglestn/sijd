@@ -15,11 +15,16 @@ label {
   display: inline-block;
 }
 
-.summary label {
-  width: 230px;
+.summary {
+  height: 100%;
+
+  label {
+    width: 230px;
+  }
 }
 
 .actions {
+  width: 100%;
   margin: 20px 0;
 }
 

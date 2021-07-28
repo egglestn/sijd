@@ -1,0 +1,26 @@
+<h2>Latest data</h2>
+
+<h3>Activity</h3>
+<table class="full-data">
+  <thead>
+    <% Activity.all.each do |activity| %>
+      <th><%= activity %></th>
+    <% end %>
+  </thead>
+  <tbody>
+    <% @records.each do |record| %>
+      <% next unless record.records_activities.any? %>
+      <tr>
+        <% Activity.all.each do |activity| %>
+          <% ra = record.records_activities.where(activity_id: activity.id)&.first %>
+          <% if ra %>
+            <% score = ra.read_attribute_before_type_cast(:score) %>
+            <td class='<%= score_to_num(score) %>'><%= score_to_sym(score) %></td>
+          <% else %>
+            <td>&nbsp;</td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

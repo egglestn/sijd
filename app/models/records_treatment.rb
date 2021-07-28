@@ -5,6 +5,7 @@ class RecordsTreatment < ApplicationRecord
   belongs_to :treatment
 
   validates :record_id, uniqueness: { scope: :treatment_id }
+  validates_presence_of(:score)
 
   enum score: %i[
     not_tried

@@ -3,7 +3,7 @@
 <p>Tell us about treatments that you use for your condition. How often do you take them?</p>
 
 <%= simple_form_for(@record, html: { method: :put }) do |f| %>
-  <table>
+  <table class="questions">
     <thead>
       <th>&nbsp;</th>
       <% human_keys(RecordsTreatment.scores.keys).each do |score_hash| %>

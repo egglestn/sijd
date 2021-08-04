@@ -35,6 +35,10 @@ td.first {
     color: green;
     position: absolute;
   }
+
+  input[type="radio"] {
+    //display: none;
+  }
 }
 
 .questions .first {

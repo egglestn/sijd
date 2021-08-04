@@ -1,6 +1,6 @@
-<h3>How medicines affect your condition</h3>
+<h3>Books</h3>
 
-<p>Tell us about medicines that you use for your condition. How often do you take them?</p>
+<p>What do you think of these books?</p>
 
 <%= simple_form_for(@record, html: { method: :put }) do |f| %>
   <table class="questions">
@@ -9,7 +9,6 @@
       <% human_keys(RecordsMedicine.scores.keys).each do |score_hash| %>
         <th><%= score_hash.first %></th>
       <% end %>
-      <th>Side effects</th>
     </thead>
 
     <tbody>
@@ -20,6 +19,6 @@
   </table>
 
   <div class="actions">
-    <%= f.submit "Save and go to Vitamins", class: :btn %>
+    <%= f.submit "Save", class: :btn %>
   </div>
 <% end %>

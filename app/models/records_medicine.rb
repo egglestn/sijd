@@ -8,10 +8,10 @@ class RecordsMedicine < ApplicationRecord
   validates_presence_of(:score)
 
   enum score: %i[
-    tried_but_stopped
-    occasionally
-    frequently
-    would_like_to
-    not_tried
+    hate
+    dislike
+    neutral
+    like
+    love
   ]
 end

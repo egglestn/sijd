@@ -5,10 +5,8 @@
 <%= simple_form_for(@record, html: { method: :put }) do |f| %>
   <table class="questions">
     <thead>
-      <th>&nbsp;</th>
-      <% human_keys(RecordsMedicine.scores.keys).each do |score_hash| %>
-        <th><%= score_hash.first %></th>
-      <% end %>
+      <th>Name</th>
+      <th>Score</th>
     </thead>
 
     <tbody>

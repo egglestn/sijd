@@ -4,7 +4,7 @@ tbody tr:nth-child(4n-2) {
 
 th, td {
   font-size: 14px;
-  width: 90px;
+  width: 130px;
   text-align: center;
   padding: 5px 0;
   word-break: break-word;
@@ -15,6 +15,26 @@ td.first {
   font-weight: bold;
   width: 135px;
   padding-left: 4px;
+}
+
+.user-score {
+  cursor: pointer;
+  padding: 2px;
+
+  unicode-bidi: bidi-override;
+  direction: rtl;
+
+  .star {
+    width: unset;
+    font-size: 19px;
+    padding: 2px;
+  }
+
+  .star:hover:before, .star:hover ~ span:before {
+    content: "\2605";
+    color: green;
+    position: absolute;
+  }
 }
 
 .questions .first {
